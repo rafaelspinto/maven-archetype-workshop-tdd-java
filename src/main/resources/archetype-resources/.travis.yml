@@ -1,0 +1,13 @@
+language: java
+
+dist: trusty
+
+addons:
+  sonarcloud:
+    organization: rafaelspinto-github
+    token:
+        secure: <INSERT_YOUR_TOKEN_HERE>
+
+script:
+  - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
+  - mvn test
